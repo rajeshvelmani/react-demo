@@ -1,6 +1,6 @@
-import React from "react"
+import React, { memo } from "react"
 
-export default class TodoList extends React.Component {
+/*export default class TodoList extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,4 +18,16 @@ export default class TodoList extends React.Component {
             </div>
         );
     }
+}*/
+
+function TodoList(props) {
+    console.log("TodoList loading");
+    return (
+        <div>
+            {props.items.map((item) => <p key={item.id}>{item.text}</p>)}
+        </div>
+    );
+
 }
+
+export default memo(TodoList);
